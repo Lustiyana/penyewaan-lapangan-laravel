@@ -1,0 +1,41 @@
+strong, small{
+    font-family: 'Montserrat', sans-serif;;
+}
+
+#header h1 {
+    font-family: "Marcellus SC", serif;
+}
+
+#schedule{
+    width: 100%;
+    height: 70vh;
+    background-color: #FFF;
+    margin-bottom: 24px;
+}
+
+#schedule .detail .item{
+    margin-top: 8px;
+}
+
+#schedule .detail small{
+    margin-right: 24px;
+}
+
+#schedule .time-item button{
+    width: 120px;
+    height: 56px;
+    margin-top: 8px;
+    margin-right: 16px;
+}
+
+#schedule .time-item button.active, #schedule .time-item button:hover{
+    background-color: #47C8FF;
+    border: none;
+}
+
+#schedule .submit a{
+    width: 120px;
+    height: 56px;
+    background-color: #47C8FF;
+    border: none;
+}

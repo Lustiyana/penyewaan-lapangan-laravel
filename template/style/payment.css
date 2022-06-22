@@ -1,0 +1,70 @@
+h4, h5, strong, small{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#header h1 {
+    font-family: "Marcellus SC", serif;
+}
+
+#payment .payment-container{
+    width: 100vw;
+    height: 70vh;
+    background: white;
+}
+
+#payment .payment-container .box-detail{
+    width: 35vw;
+    height: 429px;
+    background: #DBDBDB;
+}
+
+#payment .box-detail .detail{
+    width: 90%;
+    height: 392px;
+    background: #FFF;
+}
+
+#payment .payment-container .box-payment{
+    width: 30vw;
+    height: 426px;
+    background: #DBDBDB;
+}
+
+#payment .box-payment .payment-title{
+    width: 90%;
+    height: 10%;
+    background-color: #FFF;
+}
+
+#payment .box-payment .payment-method{
+    width: 90%;
+    height: 70%;
+    background: #FFF;
+}
+
+#payment .box-payment .payment{
+    width: 90%;
+    height: 10%;
+}
+
+#payment .box-payment button{
+    width: 100%;
+    height: 100%;
+    background-color: #47C8FF;
+    border: none;
+}
+
+.modal-body .transfer .no-transfer{
+    width: 100%;
+    height: 66px;
+    background: #EBEBEB;
+}
+
+.modal .modal-footer a.btn{
+    background: #47C8FF;
+    border: none;
+}
+
+.modal .modal-footer a.btn:hover{
+    background: #41b7ea;
+}

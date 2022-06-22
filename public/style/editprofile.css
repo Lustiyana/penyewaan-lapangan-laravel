@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+.edit-profile {
+  font-family: "Alata", sans-serif;
+  max-width: 720px;
+  margin-left: 129px;
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+.img-profile {
+  max-width: 121px;
+  margin-bottom: 42px;
+}
+.img-profile h5 {
+  text-align: center;
+}
+.img-profile .icon {
+  display: inline-block;
+  position: absolute;
+  padding-top: 80px;
+}
+.img-profile .photos {
+  margin-right: -24px;
+}
+.edit-item .form-control {
+  border-radius: 12px;
+}
+.edit-item .save-button {
+  background-color: #47c8ff;
+  border-radius: 12px;
+}

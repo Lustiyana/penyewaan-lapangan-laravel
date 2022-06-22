@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lobster&family=Marcellus+SC&display=swap");
+
+#header h1 {
+    font-family: "Marcellus SC", serif;
+}
+
+#table .table-responsive .btn-box {
+    display: flex;
+    align-items: center;
+    border-radius: 22px;
+}
+
+#table .table-responsive .btn-booking {
+    font-size: 12px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    color: #1F9254;
+    text-decoration: none;
+}
+
+#table .table-responsive .btn-box.valid{
+    width: 68px;
+    height: 31px;
+    background: #EBF9F1;
+}
+
+#table .table-responsive .btn-booking.valid{
+    color: #1F9254;
+}
+
+#table .table-responsive .btn-box.invalid{
+    width: 105px;
+    height: 31px;
+    background: #D30000;
+}
+
+#table .table-responsive .btn-booking.invalid{
+    color: #FFF;
+}

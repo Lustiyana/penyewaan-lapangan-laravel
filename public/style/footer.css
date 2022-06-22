@@ -1,0 +1,34 @@
+#footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 5vh;
+}
+
+#footer div {
+    width: 33.3%;
+}
+
+#footer p {
+    margin-top: -2px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#footer p span {
+    color: #FFF;
+}
+
+#footer .sosmed {
+    display: flex;
+    justify-content: end;
+}
+
+#footer .sosmed a {
+    margin-top: -25px;
+    margin-right: 40px;
+}

@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;700&display=swap");
+.profile-content {
+  font-family: "Markazi Text", serif;
+  background-color: white;
+  height: 80%;
+  width: 80%;
+  margin: 24px auto;
+}
+
+.profile-name {
+  display: flex;
+}
+.profile-name img {
+  margin-right: 48px;
+  width: 120px;
+}
+.profile-name h5 {
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 24px;
+}
+
+.profile-header .edit a {
+  text-decoration: none;
+  text-align: right;
+  font-size: 24px;
+}
+
+.profile-content .profile-header {
+  padding-top: 46px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.profile-item table {
+  font-size: 24px;
+  margin-left: 50px;
+  margin-top: 55px;
+}
+.profile-item table td {
+  padding-right: 100px;
+  padding-bottom: 16px;
+}

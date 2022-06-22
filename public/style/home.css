@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lobster&family=Marcellus+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap");
+body {
+    background-color: #f2f2f2;
+}
+.navbar {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    background-color: white;
+}
+.navbar .nav-logo {
+    width: 171px;
+    height: auto;
+}
+
+.navbar .nav-body {
+    justify-content: space-between;
+}
+.navbar .nav-body .navbar-nav .nav-item .active {
+    color: #408cd2;
+}
+.navbar .nav-body .nav-item .nav-link {
+    color: black;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.navbar .profile {
+    display: flex;
+    right: 0;
+}
+.navbar .profile a {
+    margin-right: 24px;
+    font-family: "Lobster", sans-serif;
+    font-size: 24px;
+}
+.navbar .profile .dropdown-item {
+    font-family: "Inter", sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+/* Content */
+.home-content {
+    background-image: url("../images/bg-home.png");
+    height: 80%;
+    width: 100%;
+    background-repeat: no-repeat;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.home-content .text {
+    font-family: "Marcellus SC", serif;
+    color: white;
+    text-align: center;
+    padding-top: 360px;
+}
+.home-content .text h3 {
+    font-size: 48px;
+}
+.home-content .text h2 {
+    font-size: 64px;
+}
