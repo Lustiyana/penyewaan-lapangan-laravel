@@ -18,7 +18,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="{!! asset('style/main.css') !!}">
+    <link href="style/main.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -41,10 +41,10 @@
           <div>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="schedule.html">Jadwal</a>
+                <a class="nav-link" href="#">Jadwal</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -61,7 +61,7 @@
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li><a class="dropdown-item" href="invoice.html">Data Invoice</a></li>
+                  <li><a class="dropdown-item" href="#">Data Invoice</a></li>
                   <li>
                     <a class="dropdown-item" href="#">Rincian Pemesanan</a>
                   </li>
@@ -98,7 +98,7 @@
                   <li>
                     <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                   </li>
-                  <li><a class="dropdown-item" href="{{ route('login') }}">Log Out</a></li>
+                  <li><a class="dropdown-item" href="#">Log Out</a></li>
                 </ul>
                 <a href="#"><img src="images/profile-logo.png" alt="" /></a>
               </li>
@@ -109,10 +109,35 @@
     </nav>
 
     <!-- Content -->
-    <div class="home-content">
-      <div class="text">
-        <h3>Selamat Datang</h3>
-        <h2>Zone73 | Futsal</h2>
+    <div class="profile-content">
+      <div class="profile-header row">
+        <div class="profile-name col-11">
+          <img src="images/profile-logo-big.png" alt="" />
+          <h5>Agus</h5>
+        </div>
+        <div class="edit col-1">
+          <a href="editprofile.html" class="text-right">Edit</a>
+        </div>
+      </div>
+      <div class="profile-item">
+        <table>
+          <tr>
+            <td>Sign-In Email</td>
+            <td>Agus01@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Sign-In Password</td>
+            <td>********</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>0812345678</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>Jalan Bahagia, Bandung Jawa Barat</td>
+          </tr>
+        </table>
       </div>
     </div>
 
@@ -125,7 +150,7 @@
         </p>
       </div>
       <div class="sosmed">
-        <a><img src="images/fb-black.svg" alt="fb" /></a>
+        <a href="#"><img src="images/fb-black.svg" alt="fb" /></a>
         <a href="#"><img src="images/twitter-black.svg" alt="twitter" /></a>
         <a href="#"><img src="images/instagram-black.svg" alt="instagram" /></a>
       </div>

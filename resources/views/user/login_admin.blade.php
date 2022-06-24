@@ -31,7 +31,7 @@
                     @endforeach
                     @endif
                     <img src="images/logo-zone73.png" alt="logo" width="267" height="80px">
-                    <form method="POST" action="{{ route('login.action') }}">
+                    <form method="POST" action="{{ route('login_admin.action') }}">
                         @csrf
                         <div class="input-email mb-3 mt-4">
                             <input type="email" class="form-control" id="email-address" placeholder="Email Address" name="email" value="{{ old('email') }}">
@@ -43,10 +43,6 @@
                             <button class="btn btn-signin text-center">sign in</button>
                         </div>
                     </form>
-                </div>
-                <div class="register">
-                    <p>don't have an account? <a href="{{ route('register') }}">register</a></p>
-                    <p>login for <a href="{{ route('login_admin') }}">admin</a></p>
                 </div>
             </div>
         </div>
