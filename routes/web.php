@@ -38,7 +38,4 @@ Route::get('profile', function () {
     return view('profile');
 })->name('profile');
 
-Route::get('lapangan', [AdminController::class, 'lapangan'])->name('lapangan');
-Route::get('transaksi', [AdminController::class, 'transaksi'])->name('transaksi');
-Route::get('create_lapangan', [AdminController::class, 'create_lapangan'])->name('create_lapangan');
-Route::post('create_lapangan', [AdminController::class, 'create_lapangan_action'])->name('create_lapangan.action');
+Route::resource("admin/lapangan", AdminController::class);

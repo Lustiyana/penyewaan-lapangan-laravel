@@ -7,33 +7,47 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function lapangan(){
-        return view('admin/lapangan/index');
+    public function index()
+    {
+        $lapangan = Lapangan::all();
+        return view ('admin/lapangan.index')->with('lapangan', $lapangan);
     }
-    public function transaksi(){
-        return view('admin/transaksi/index');
+    
+    public function create()
+    {
+        return view('admin/lapangan.create');
     }
-    public function create_lapangan(){
-        $data['title'] = 'Login';
-        return view('admin/lapangan/create', $data);
+  
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        Lapangan::create($input);
+        return redirect('data_lapangan')->with('flash_message', 'Student Addedd!');  
     }
-    public function create_lapangan_action(Request $request){
-        $request->validate([
-            'kode_lapangan'=>'required',
-            'harga_sewa'=>'required',
-            'jam_mulai'=>'required',
-            'jam_selesai'=>'required',
-            'status'=>'required',
-        ]);
-
-        $data_lapangan = new Lapangan([
-            'kode_lapangan' => $request->kode_lapangan,
-            'harga_sewa' => $request->harga_sewa,
-            'jam_mulai' => $request->jam_mulai,
-            'jam_selesai' => $request->jam_selesai,
-            'status' => $request->status
-        ]);
-        $data_lapangan->save();
-        return redirect()->route('lapangan')->with('success', 'Data telah ditambahkan');
+    
+    public function show($id)
+    {
+        $data_lapangan = Lapangan::find($id);
+        return view('admin/lapangan.index')->with('lapangan', $data_lapangan);
+    }
+    
+    public function edit($id)
+    {
+        $data_lapangan = Lapangan::find($id);
+        return view('lapangan.edit')->with('lapangan', $data_lapangan);
+    }
+  
+    public function update(Request $request, $id)
+    {
+        $data_lapangan = Lapangan::find($id);
+        $input = $request->all();
+        $data_lapangan->update($input);
+        return redirect('data_lapangan')->with('flash_message', 'student Updated!');  
+    }
+  
+    public function destroy($id)
+    {
+        Lapangan::destroy($id);
+        return redirect('data_lapangan')->with('flash_message', 'Student deleted!');  
     }
 }

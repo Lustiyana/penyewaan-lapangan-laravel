@@ -73,14 +73,14 @@
         
         <!-- Nav Item - Tables Transaksi -->
         <li class="nav-item">
-        <a class="nav-link" href="{{ route('transaksi') }}">
+        <a class="nav-link" href="{{ url('admin/transaksi/index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Transaksi</span></a
           >
         </li>
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('lapangan') }}">
+          <a class="nav-link" href="{{ url('admin/lapangan/index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Lapangan</span></a
           >

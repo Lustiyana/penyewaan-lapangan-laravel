@@ -73,14 +73,14 @@
 
         <!-- Nav Item - Tables Transaksi -->
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('transaksi') }}">
+          <a class="nav-link" href="{{ url('admin/transaksi/index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Transaksi</span></a
           >
         </li>
         <!-- Nav Item - Tables -->
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('lapangan') }}">
+          <a class="nav-link" href="{{ url('admin/lapangan/index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Lapangan</span></a
           >
@@ -156,7 +156,7 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-body">
-                <a type="button" class="btn btn-primary" href="{{ route('create_lapangan') }}">Tambah Data</a>
+                <a type="button" class="btn btn-primary" href="{{ url('admin/lapangan/create') }}">Tambah Data</a>
                 <div class="table-responsive">
                   <table
                     class="table table-bordered"
@@ -185,34 +185,15 @@
                       </tr>
                     </tfoot>
                     <tbody>
+                      @foreach ($lapangan as $item)      
                       <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>Rp. 120.000</td>
-                        <td>16:00 - 17:00</td>
-                        <td>Kosong</td>
+                        <td>{{ $loop -> iteration }}</td>
+                        <td>{{ $item -> kode_lapangan }}</td>
+                        <td>{{ $item -> harga_sewa }}</td>
+                        <td>{{ $item -> jam_mulai }}<p>-</p>{{ $item -> jam_selesai }}</td>
+                        <td>{{ $item -> status }}</td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>B</td>
-                        <td>Rp. 100.000</td>
-                        <td>16:00 - 17:00</td>
-                        <td>Booking</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>C</td>
-                        <td>Rp. 90.000</td>
-                        <td>16:00 - 17:00</td>
-                        <td>Booking</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>D</td>
-                        <td>Rp. 80.000</td>
-                        <td>16:00 - 17:00</td>
-                        <td>Booking</td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>
