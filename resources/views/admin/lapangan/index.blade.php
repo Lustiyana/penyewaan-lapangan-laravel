@@ -139,7 +139,7 @@
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="img/undraw_profile.svg"
+                    src="{{ asset('backend/img/undraw_profile.svg') }}"
                   />
                 </a>
                 <!-- Dropdown - User Information -->
@@ -156,7 +156,7 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-body">
-                <button type="button" class="btn btn-primary">Tambah Data</button>
+                <a type="button" class="btn btn-primary" href="{{ route('create_lapangan') }}">Tambah Data</a>
                 <div class="table-responsive">
                   <table
                     class="table table-bordered"

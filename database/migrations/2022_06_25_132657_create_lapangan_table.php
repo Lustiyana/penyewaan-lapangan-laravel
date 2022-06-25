@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lapangan', function (Blueprint $table) {
-            $table->id();
-            $table->integer('number');
-            $table->integer('price');
-            $table->tinyInteger('status')->default(0);
+            $table->id('lapangan_id');
+            $table->integer('nomor');
+            $table->string('kode_lapangan');
+            $table->integer('harga_sewa');
+            $table->time('jam_mulai');
+            $table->time('jam_selesai');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
