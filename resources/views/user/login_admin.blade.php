@@ -44,6 +44,10 @@
                         </div>
                     </form>
                 </div>
+                <div class="register">
+                    <p>don't have an account? <a href="{{ route('register_admin') }}">register</a></p>
+                    <p style="text-align: center">login for <a href="{{ route('login') }}">user</a></p>
+                </div>
             </div>
         </div>
     </section>

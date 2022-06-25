@@ -42,8 +42,13 @@ class UserController extends Controller
             'password'=>'required',
         ]);
         if(auth()->attempt(array('email' => $request['email'], 'password' => $request['password']))){
-            $request->session()->regenerate();
-            return redirect()->route('home');
+            if(auth()->user()->is_admin == 0){
+                $request->session()->regenerate();
+                return redirect()->route('home');
+            } 
+            else{
+                return redirect()->route('login_admin')->withErrors(['error'=>'Silahkan masuk sebagai admin']);
+            }
         }
         return back()->withErrors(['password'=>'Password atau Email salah!']);
     }

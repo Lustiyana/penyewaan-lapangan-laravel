@@ -23,12 +23,13 @@ Route::get('register', [UserController::class, 'register'])->name('register');
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class, 'login_action'])->name('login.action');
-Route::get('register_admin', [UserController::class, 'register_admin'])->name('register');
+Route::get('register_admin', [UserController::class, 'register_admin'])->name('register_admin');
 Route::post('register_admin', [UserController::class, 'register_admin_action'])->name('register_admin.action');
 Route::get('login_admin', [UserController::class, 'login_admin'])->name('login_admin');
 Route::post('login_admin', [UserController::class, 'login_admin_action'])->name('login_admin.action');
 
 Route::get('homeAdmin', [HomeController::class, 'homeAdmin'])->name('homeAdmin')->middleware('is_admin');
+
 Route::get('home', function () {
     return view('home');
 })->name('home');
