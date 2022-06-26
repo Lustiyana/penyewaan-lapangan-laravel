@@ -40,3 +40,4 @@ Route::get('profile', function () {
 })->name('profile');
 
 Route::resource('/arenas', ArenaController::class);
+Route::get('schedule', [HomeController::class, 'schedule']);

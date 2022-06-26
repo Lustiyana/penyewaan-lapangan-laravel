@@ -16,7 +16,6 @@ class ArenaController extends Controller
         return view('arenas.index', compact('arenas'));
     }
 
-
     public function create()
     {
         return view('arenas.create');
