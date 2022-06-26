@@ -7,47 +7,32 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
-    {
-        $lapangan = Lapangan::all();
-        return view ('admin/lapangan.index')->with('lapangan', $lapangan);
+    public function lapangan(){
+        return view('admin/lapangan/index');
     }
-    
-    public function create()
-    {
-        return view('admin/lapangan.create');
+    public function transaksi(){
+        return view('admin/transaksi/index');
     }
-  
-    public function store(Request $request)
-    {
-        $input = $request->all();
-        Lapangan::create($input);
-        return redirect('data_lapangan')->with('flash_message', 'Student Addedd!');  
+    public function create_lapangan(){
+        $data['title'] = 'Login';
+        return view('admin/lapangan/create', $data);
     }
-    
-    public function show($id)
-    {
-        $data_lapangan = Lapangan::find($id);
-        return view('admin/lapangan.index')->with('lapangan', $data_lapangan);
-    }
-    
-    public function edit($id)
-    {
-        $data_lapangan = Lapangan::find($id);
-        return view('lapangan.edit')->with('lapangan', $data_lapangan);
-    }
-  
-    public function update(Request $request, $id)
-    {
-        $data_lapangan = Lapangan::find($id);
-        $input = $request->all();
-        $data_lapangan->update($input);
-        return redirect('data_lapangan')->with('flash_message', 'student Updated!');  
-    }
-  
-    public function destroy($id)
-    {
-        Lapangan::destroy($id);
-        return redirect('data_lapangan')->with('flash_message', 'Student deleted!');  
+    public function create_lapangan_action(Request $request){
+        $request->validate([
+            'kode_lapangan'=>'required',
+            'harga_sewa'=>'required',
+            'jam_booking'=>'required',
+            'status'=>'required',
+        ]);
+
+        $lapangan = new Lapangan([
+            'kode_lapangan' => $request->kode_lapangan,
+            'harga_sewa' => $request->harga_sewa,
+            'jam_booking' => $request->jam_booking,
+            'status' => $request->status
+        ]);
+        $lapangan->save();
+        return redirect()->route('lapangan')->with('success', 'Data telah ditambahkan');
+
     }
 }

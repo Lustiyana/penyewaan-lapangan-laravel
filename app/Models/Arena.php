@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lapangan extends Model
+class Arena extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['kode_lapangan', 'harga_sewa','jam_tersedia', 'status'];
+    protected $fillable = ['arena_code', 'price','time', 'status'];
 }

@@ -151,54 +151,47 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Lapangan</h1>
-
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-              <div class="card-body">
-                <a type="button" class="btn btn-primary" href="{{ url('admin/lapangan/create') }}">Tambah Data</a>
-                <div class="table-responsive">
-                  <table
-                    class="table table-bordered"
-                    id="dataTable"
-                    width="100%"
-                    cellspacing="0"
-                  >
-                    <thead>
-                      <tr>
-                        <th>Nomor</th>
-                        <th>Lapangan</th>
-                        <th>Harga Sewa per Jam</th>
-                        <th>Jam Tersedia</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tfoot>
-                      <tr>
-                        <th>Nomor</th>
-                        <th>Lapangan</th>
-                        <th>Harga Sewa per Jam</th>
-                        <th>Jam Tersedia</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                      </tr>
-                    </tfoot>
-                    <tbody>
-                      @foreach ($lapangan as $item)      
-                      <tr>
-                        <td>{{ $loop -> iteration }}</td>
-                        <td>{{ $item -> kode_lapangan }}</td>
-                        <td>{{ $item -> harga_sewa }}</td>
-                        <td>{{ $item -> jam_mulai }}<p>-</p>{{ $item -> jam_selesai }}</td>
-                        <td>{{ $item -> status }}</td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+            <h1 class="h3 mb-2 text-gray-800">Input lapangan</h1>
+            
+            <form action="{{ route('create_lapangan.action') }}" method="POST">
+                @csrf
+                <div class="box-lapangan d-flex flex-column">
+                    <strong>Kode lapangan</strong>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Pilih lapangan</option>
+                        <option value="1">A</option>
+                        <option value="2">B</option>
+                        <option value="3">C</option>
+                        <option value="4">D</option>
+                    </select>
+                    <strong>Harga sewa</strong>
+                    <input type="number" class="form-control" id="hargaLapangan" value="{{ old('harga_sewa') }}">
+                    <strong>Jam booking</strong>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Pilih jam</option>
+                        <option value="1">11:00 - 12:00</option>
+                        <option value="2">12:00 - 13:00</option>
+                        <option value="3">13:00 - 14:00</option>
+                        <option value="4">14:00 - 15:00</option>
+                        <option value="5">15:00 - 16:00</option>
+                        <option value="6">16:00 - 17:00</option>
+                        <option value="7">17:00 - 18:00</option>
+                        <option value="8">18:00 - 19:00</option>
+                        <option value="9">19:00 - 20:00</option>
+                        <option value="10">20:00 - 21:00</option>
+                        <option value="11">21:00 - 22:00</option>
+                    </select>
+                    <strong>Status</strong>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Pilih status</option>
+                        <option value="1">Tersedia</option>
+                        <option value="2">Tidak tersedia</option>
+                    </select>
+                    <div class="btn-box py-4">
+                        <button class="btn btn-primary text-center">Tambah</button>
+                    </div>
                 </div>
-              </div>
-            </div>
+            </form>
           </div>
           <!-- /.container-fluid -->
         </div>
@@ -287,3 +280,4 @@
     <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
   </body>
 </html>
+>>>>>>> ea19381a9029da51a613c0f7728ace785ab32b0e
