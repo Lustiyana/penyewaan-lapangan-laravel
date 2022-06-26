@@ -32,7 +32,7 @@ Route::get('login_admin', [UserController::class, 'login_admin'])->name('login_a
 Route::post('login_admin', [UserController::class, 'login_admin_action'])->name('login_admin.action');
 
 Route::get('homeAdmin', [HomeController::class, 'homeAdmin'])->name('homeAdmin')->middleware('is_admin');
-
+Route::get('schedule', [HomeController::class, 'schedule']);
 Route::get('home', function () {
     return view('home');
 })->name('home');

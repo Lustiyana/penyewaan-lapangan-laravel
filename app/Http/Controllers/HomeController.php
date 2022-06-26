@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
   
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
    
 class HomeController extends Controller
 {
+    public function schedule()
+    {
+        $arenas = DB::table('arenas')->get();
+
+        return view('schedule', ['arenas' => $arenas]);
+    }
     /**
      * Create a new controller instance.
      *

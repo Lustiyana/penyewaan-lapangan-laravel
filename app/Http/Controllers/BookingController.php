@@ -96,9 +96,9 @@ class BookingController extends Controller
     public function destroy(Booking $booking)
     {
          //delete post
-         $booking->delete();
+        $booking->delete();
 
          //redirect to index
-         return redirect()->route('booked.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('booked.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
