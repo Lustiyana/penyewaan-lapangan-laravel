@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('arena_code');
             $table->integer('price');
             $table->string('time');
-            $table->boolean('status');
+            $table->string('status');
             $table->timestamps();
         });
     }

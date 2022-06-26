@@ -80,7 +80,7 @@
         </li>
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('lapangan.index') }}">
+          <a class="nav-link" href="{{ url('arenas') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Lapangan</span></a
           >

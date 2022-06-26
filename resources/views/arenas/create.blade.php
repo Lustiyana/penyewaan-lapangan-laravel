@@ -153,42 +153,47 @@
             <!-- Page Heading -->
             <h1 class="h3 mb-2 text-gray-800">Input lapangan</h1>
             
-            <form action="{{ route('create_lapangan.action') }}" method="POST">
+            <form action="{{ route('arenas.store') }}" method="POST">
                 @csrf
                 <div class="box-lapangan d-flex flex-column">
-                    <strong>Kode lapangan</strong>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Pilih lapangan</option>
-                        <option value="1">A</option>
-                        <option value="2">B</option>
-                        <option value="3">C</option>
-                        <option value="4">D</option>
-                    </select>
-                    <strong>Harga sewa</strong>
-                    <input type="number" class="form-control" id="hargaLapangan" value="{{ old('harga_sewa') }}">
-                    <strong>Jam booking</strong>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Pilih jam</option>
-                        <option value="1">11:00 - 12:00</option>
-                        <option value="2">12:00 - 13:00</option>
-                        <option value="3">13:00 - 14:00</option>
-                        <option value="4">14:00 - 15:00</option>
-                        <option value="5">15:00 - 16:00</option>
-                        <option value="6">16:00 - 17:00</option>
-                        <option value="7">17:00 - 18:00</option>
-                        <option value="8">18:00 - 19:00</option>
-                        <option value="9">19:00 - 20:00</option>
-                        <option value="10">20:00 - 21:00</option>
-                        <option value="11">21:00 - 22:00</option>
-                    </select>
-                    <strong>Status</strong>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Pilih status</option>
-                        <option value="1">Tersedia</option>
-                        <option value="2">Tidak tersedia</option>
-                    </select>
+                    <div>
+                      <strong>Kode Lapangan</strong>
+                      <input type="text" class="form-control @error('arena_code') is-invalid @enderror" name="arena_code" value="{{ old('arena_code') }}" placeholder="Masukkan Kode Lapangan">
+                       @error('arena_code')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                    </div>
+                    <div>
+                      <strong>Harga sewa</strong>
+                      <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" placeholder="Masukkan Harga Sewa per Jam">
+                      @error('price')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                    </div>
+                    <div>
+                      <strong>Jam booking (HH:MM - HH:MM)</strong>
+                      <input type="text" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}" placeholder="Masukkan Harga Sewa per Jam">
+                      @error('time')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                    </div>
+                    <div>
+                      <strong>Status</strong>
+                      <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}" placeholder="Masukkan status lapangan">
+                      @error('status')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                    </div>
                     <div class="btn-box py-4">
-                        <button class="btn btn-primary text-center">Tambah</button>
+                      <button class="btn btn-primary text-center">Tambah</button>
                     </div>
                 </div>
             </form>
@@ -278,6 +283,9 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+    <script>
+      CKEDITOR.replace( 'content' );
+    </script>
   </body>
 </html>
 >>>>>>> ea19381a9029da51a613c0f7728ace785ab32b0e

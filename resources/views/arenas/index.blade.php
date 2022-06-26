@@ -156,7 +156,7 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-body">
-                <a type="button" class="btn btn-primary" href="#">Tambah Data</a>
+                <a type="button" class="btn btn-primary" href="{{ url('arenas/create') }}">Tambah Data</a>
                 <div class="table-responsive">
                   <table
                     class="table table-bordered"
@@ -187,18 +187,18 @@
                     <tbody>
                       @forelse ($arenas as $arena)
                       <tr>
-                        <td>{{ $arena->iterate }}</td>
+                        <td>{{ $arena->arena_id }}</td>
                         <td>{{ $arena->arena_code }}</td>
                         <td>{{ $arena->price }}</td>
                         <td>{{ $arena->time }}</td>
-                        <td>{{ $lapangan->status }}</td>
+                        <td>{{ $arena->status }}</td>
                         <td class="text-center">
-                          <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('arenas.destroy', $item->id) }}" method="POST">
-                                            <a href="{{ route('arenas.edit', $item->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                        </form>
+                          <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('arenas.destroy', $arena->arena_id) }}" method="POST">
+                                <a href="{{ route('arenas.edit', $arena->arena_id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                            </form>
                         </td>
                       </tr>
                       @empty
