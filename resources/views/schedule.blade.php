@@ -118,7 +118,7 @@
                         <th>No</th>
                         <th>Lapangan</th>
                         <th>harga sewa/jam</th>
-                        <th>status</th>
+                        <th>action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -127,7 +127,11 @@
                         <td>{{ $arena->arena_id }}</td>
                         <td>{{ $arena->arena_code }}</td>
                         <td>{{ $arena->price }}</td>
-                        <td>{{ $arena->status }}</td>
+                        <td>
+                            <div class="btn-box valid">
+                                <a href="#" class="btn-booking valid">Booking</a>
+                            </div>
+                        </td>
                       </tr>
                       @empty
                                   <div class="alert alert-danger">
