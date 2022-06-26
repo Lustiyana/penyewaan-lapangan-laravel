@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArenaController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +41,4 @@ Route::get('profile', function () {
 })->name('profile');
 
 Route::resource('/arenas', ArenaController::class);
+Route::resource('/booked', BookingController::class);

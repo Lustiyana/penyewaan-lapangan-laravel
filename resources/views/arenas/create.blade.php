@@ -149,55 +149,44 @@
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
-          <div class="container-fluid">
-            <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Input lapangan</h1>
-            
-            <form action="{{ route('arenas.store') }}" method="POST">
-                @csrf
-                <div class="box-lapangan d-flex flex-column">
-                    <div>
-                      <strong>Kode Lapangan</strong>
-                      <input type="text" class="form-control @error('arena_code') is-invalid @enderror" name="arena_code" value="{{ old('arena_code') }}" placeholder="Masukkan Kode Lapangan">
-                       @error('arena_code')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+          <div class="card">
+            <div class="card-header">
+                <div class="float-left">
+                    <strong>Tambah Lapangan</strong>
+                </div>
+                <div class="float-right">
+                    <a href="{{ url('arenas') }}" class="btn btn-secondary btn-sm">
+                        <i class="fa fa-undo"></i> Back
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                
+                <div class="row">
+                    <div class="col-md-4 offset-md-4">
+                        <form method="POST" action="{{ route('arenas.store') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label>Nama lapangan</label>
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" autofocus>
+                                @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                    </div>
-                    <div>
-                      <strong>Harga sewa</strong>
-                      <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" placeholder="Masukkan Harga Sewa per Jam">
-                      @error('price')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Harga Per Jam</label>
+                                <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
+                                @error('price')
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                    </div>
-                    <div>
-                      <strong>Jam booking (HH:MM - HH:MM)</strong>
-                      <input type="text" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}" placeholder="Masukkan Harga Sewa per Jam">
-                      @error('time')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                    </div>
-                    <div>
-                      <strong>Status</strong>
-                      <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}" placeholder="Masukkan status lapangan">
-                      @error('status')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                    </div>
-                    <div class="btn-box py-4">
-                      <button class="btn btn-primary text-center">Tambah</button>
+                            </div>
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </form>
                     </div>
                 </div>
-            </form>
-          </div>
+ 
+            </div>
+        </div>
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->

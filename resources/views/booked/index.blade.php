@@ -156,7 +156,7 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-body">
-                <a type="button" class="btn btn-primary" href="{{ url('arenas/create') }}">Tambah Data</a>
+                <a type="button" class="btn btn-primary" href="{{ url('booked/create') }}">Tambah Data</a>
                 <div class="table-responsive">
                   <table
                     class="table table-bordered"
@@ -167,24 +167,24 @@
                     <thead>
                       <tr>
                         <th>Nomor</th>
-                        <th>Lapangan</th>
-                        <th>Harga Sewa per Jam</th>
+                        <th>Nama Lapangan</th>
+                        <th>Ketersediaan Jam</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @if (isset($arenas))
-                          @foreach ($arenas as $item)
+                      @if (isset($booking))
+                          @foreach ($booking as $item)
                           <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->arena->name }}</td>
+                            <td>{{ $item->booking_time }}</td>
                             <td class="text-center">
-                              <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('arenas.destroy', $item->id) }}" method="POST">
-                                    <a href="{{ route('arenas.edit', $item->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                    @csrf
+                              <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ url('booked/'.$item->id) }}" method="POST">
+                                    <a href="{{ route('booked.edit', $item->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                 </form>
                             </td>
                           </tr>
@@ -196,7 +196,7 @@
                       @endif
                     </tbody>
                   </table>
-                  {{ $arenas->links() }}
+                  {{ $booking->links() }}
                 </div>
               </div>
             </div>

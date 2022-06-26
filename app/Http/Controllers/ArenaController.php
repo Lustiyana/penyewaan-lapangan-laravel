@@ -25,16 +25,12 @@ class ArenaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'arena_code' => 'required',
-            'price'=>'required',
-            'time'=>'required',
-            'status'=>'required',
+            'name' => 'required',
+            'price'=>'required'
         ]);
         Arena::create([
-            'arena_code'=>$request->arena_code,
-            'price'=>$request->price,
-            'time'=>$request->time,
-            'status'=>$request->status,
+            'name'=>$request->name,
+            'price'=>$request->price
         ]);
         return redirect()->route('arenas.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
@@ -48,17 +44,13 @@ class ArenaController extends Controller
     {
         //validate form
         $this->validate($request, [
-            'arena_code' => 'required',
-            'price'=>'required',
-            'time'=>'required',
-            'status'=>'required',
+            'name' => 'required',
+            'price'=>'required'
         ]);
 
         $arena->update([
-            'arena_code'=>$request->arena_code,
+            'name'=>$request->name,
             'price'=>$request->price,
-            'time'=>$request->time,
-            'status'=>$request->status,
         ]);
 
         //redirect to index
