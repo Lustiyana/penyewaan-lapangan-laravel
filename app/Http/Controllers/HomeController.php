@@ -13,6 +13,12 @@ class HomeController extends Controller
 
         return view('schedule', ['arenas' => $arenas]);
     }
+
+    public function scheduletime(){
+        $arenas = DB::table('arenas')->get();
+
+        return view('scheduletime', ['arenas' => $arenas]);
+    }
     /**
      * Create a new controller instance.
      *

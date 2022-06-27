@@ -18,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('style/schedule.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('style/footer.css') !!}">
 </head>
-
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg">
@@ -107,44 +106,48 @@
       </nav>
 
     <section id="header">
-        <h1 class="py-3 text-center">harga lapangan</h1>
+        <h1 class="py-3 text-center">Daftar Jadwal Lapangan</h1>
     </section>
-
-    <section id="table">
-        <div class="table-responsive px-2 py-4 bg-white mb-5">
-            <table id="example" style="width:100%" class="table table-striped py-3">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Lapangan</th>
-                        <th>harga sewa/jam</th>
-                        <th>action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($arenas as $item)
-                      <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->price }}</td>
-                        <td>
-                            <div class="btn-box valid">
-                                <a href="{{ route('scheduletime', $item->id) }}" class="btn-booking valid">Lihat Jadwal</a>
-                            </div>
-                        </td>
-                      </tr>
-                      @empty
-                                  <div class="alert alert-danger">
-                                      Data Post belum Tersedia.
-                                  </div>
-                              @endforelse
-                </tbody>
-            </table>
+        @csrf
+    <section id="schedule" class="d-flex justify-content-between align-items-center">
+        <div class="container d-flex flex-column">
+            @foreach ($arenas as $item)
+            <div class="detail">
+                <strong>Detail lapangan</strong>
+                <div class="item">
+                    <small>Lapangan : {{ old('name', $item->name) }}</small>
+                    <small>Harga sewa/jam : Rp. {{ old('price', $item->price) }}</small>
+                    <small>Tanggal : 27/06/2022</small>
+                </div>
+            </div>
+            @endforeach
+            <div class="time mt-4">
+                <strong>Pilih jam booking</strong>
+                <div class="time-item d-flex flex-wrap">
+                    <button type="button" class="btn btn-outline-primary active">10:00 - 11:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">11:00 - 12:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">12:00 - 13:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">13:00 - 14:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">14:00 - 15:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">15:00 - 16:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">16:00 - 17:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">17:00 - 18:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">18:00 - 19:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">20:00 - 21:00</button>
+                    <button type="button" class="btn btn-outline-primary disabled">21:00 - 22:00</button>
+                </div>
+            </div>
+            <div class="price mt-4 d-flex justify-content-between">
+                <div class="total d-flex flex-column">
+                    <strong>Total</strong>
+                    <small class="mt-3">Rp.150000</small>
+                </div>
+                <div class="submit">
+                    <a href="{{ route('payment') }}" class="btn btn-primary pt-3" role="button">Booking</a>
+                </div>
+            </div>
         </div>
-
     </section>
-
-
 
     <!-- Footer -->
     <section id="footer">
@@ -160,7 +163,7 @@
             <a href="#"><img src="images/instagram-black.svg" alt="instagram" /></a>
         </div>
     </section>
-    <!-- Bootstrap core JavaScript -->
+<!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
@@ -172,3 +175,4 @@
 </body>
 
 </html>
+</body>

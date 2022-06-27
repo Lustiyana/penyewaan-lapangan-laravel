@@ -80,10 +80,18 @@
         </li>
         <!-- Nav Item - Tables -->
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url('admin/lapangan/index') }}">
+          <a class="nav-link" href="{{ url('arenas') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Lapangan</span></a
           >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('booked') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Jam Booking</span></a
+          >
+        </li>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider" />

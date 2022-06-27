@@ -72,17 +72,17 @@
         <hr class="sidebar-divider" />
 
         <!-- Nav Item - Tables Transaksi -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('admin/transaksi/index') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Transaksi</span></a
-          >
-        </li>
-        <!-- Nav Item - Tables -->
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url('admin/lapangan/index') }}">
+          <a class="nav-link" href="{{ url('arenas') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Lapangan</span></a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('booked') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Jam Booking</span></a
           >
         </li>
         <!-- Divider -->
@@ -152,7 +152,7 @@
           <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <strong>Tambah Lapangan</strong>
+                    <strong>Edit Lapangan</strong>
                 </div>
                 <div class="float-right">
                     <a href="{{ url('arenas') }}" class="btn btn-secondary btn-sm">

@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArenaController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,12 +35,24 @@ Route::post('login_admin', [UserController::class, 'login_admin_action'])->name(
 
 Route::get('homeAdmin', [HomeController::class, 'homeAdmin'])->name('homeAdmin')->middleware('is_admin');
 Route::get('schedule', [HomeController::class, 'schedule']);
+Route::get('scheduletime', [HomeController::class, 'scheduletime'])->name('scheduletime');
+
+Route::get('transaksi', [TransactionController::class, 'transaksi'])->name('transaksi');
+
+Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
 Route::get('home', function () {
     return view('home');
 })->name('home');
 Route::get('profile', function () {
     return view('profile');
 })->name('profile');
+Route::get('payment', function () {
+    return view('payment');
+})->name('payment');
+Route::get('invoice', function () {
+    return view('invoice');
+})->name('invoice');
 
 Route::resource('/arenas', ArenaController::class);
 Route::resource('/booked', BookingController::class);

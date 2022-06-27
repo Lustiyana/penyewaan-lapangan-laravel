@@ -15,26 +15,33 @@
     font-weight: 400;
     width: 100%;
     text-align: center;
-    color: #1F9254;
+    color: #1f9254;
     text-decoration: none;
 }
 
-#table .table-responsive .btn-box.valid{
+#table .table-responsive .btn-box.valid {
     width: 68px;
     height: 31px;
-    background: #EBF9F1;
+    background: #ebf9f1;
 }
 
-#table .table-responsive .btn-booking.valid{
-    color: #1F9254;
+#table .table-responsive .btn-booking.valid {
+    color: #1f9254;
 }
 
-#table .table-responsive .btn-box.invalid{
+#table .table-responsive .btn-box.invalid {
     width: 105px;
     height: 31px;
-    background: #D30000;
+    background: #d30000;
 }
 
-#table .table-responsive .btn-booking.invalid{
-    color: #FFF;
+#table .table-responsive .btn-box.success {
+    width: 105px;
+    height: 31px;
+    color: white;
+    background: #38c201;
+}
+
+#table .table-responsive .btn-booking.invalid {
+    color: #fff;
 }

@@ -62,7 +62,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('homeAdmin') }}">
+          <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
@@ -72,17 +72,17 @@
         <hr class="sidebar-divider" />
 
         <!-- Nav Item - Tables Transaksi -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('arenas') }}">
+        <li class="nav-item active">
+          <a class="nav-link" href="transaksi.html">
             <i class="fas fa-fw fa-table"></i>
-            <span>Lapangan</span></a
+            <span>Transaksi</span></a
           >
         </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url('booked') }}">
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+          <a class="nav-link" href="lapangan.html">
             <i class="fas fa-fw fa-table"></i>
-            <span>Jam Booking</span></a
+            <span>Lapangan</span></a
           >
         </li>
         <!-- Divider -->
@@ -149,76 +149,102 @@
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
-          <div class="card">
-            <div class="card-header">
-                <div class="float-left">
-                    <strong>Tambah Jam Booking</strong>
-                </div>
-                <div class="float-right">
-                    <a href="{{ url('booked') }}" class="btn btn-secondary btn-sm">
-                        <i class="fa fa-undo"></i> Back
-                    </a>
-                </div>
-            </div>
-            <div class="card-body">
-                
-                <div class="row">
-                    <div class="col-md-4 offset-md-4">
-                        <form method="POST" action="{{ route('booked.store') }}">
-                            @csrf
-                          <div class="form-group">
-                              <label>Nama Lapangan</label>
-                              <select name="arena_id" class="form-control @error('arena_id') is-invalid @enderror">
-                                  <option value="">- Pilih -</option>
-                                  @foreach ($arenas as $item)
-                                      <option value="{{ $item->id }}" {{ old('arena_id') == $item->id ? 'selected' : null }}>{{ $item->name }}</option>
-                                  @endforeach
-                              </select>
-                              @error('arena_id')
-                              <div class="invalid-feedback">{{ $message }}</div>
-                              @enderror
-                          </div>
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Transaksi</h1>
 
-                          <div class="form-group">
-                            <label>Jam Booking</label>
-                            <select name="booking_time" class="form-control @error('booking_time') is-invalid @enderror">
-                                <option value="">- Pilih -</option>
-                                <option value="10:00 - 11:00">10:00 - 11:00</option>
-                                <option value="11:00 - 12:00">11:00 - 12:00</option>
-                                <option value="12:00 - 13:00">12:00 - 13:00</option>
-                                <option value="13:00 - 14:00">13:00 - 14:00</option>
-                                <option value="14:00 - 15:00">14:00 - 15:00</option>
-                                <option value="15:00 - 16:00">15:00 - 16:00</option>
-                                <option value="16:00 - 17:00">16:00 - 17:00</option>
-                                <option value="17:00 - 18:00">17:00 - 18:00</option>
-                                <option value="18:00 - 19:00">18:00 - 19:00</option>
-                                <option value="19:00 - 20:00">19:00 - 20:00</option>
-                                <option value="20:00 - 21:00">20:00 - 21:00</option>
-                                <option value="21:00 - 22:00">21:00 - 22:00</option>
-                            </select>
-                            @error('booking_time')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                          <label>Status</label>
-                          <select name="status" class="form-control @error('status') is-invalid @enderror">
-                              <option value="">- Pilih -</option>
-                              <option value="tersedia">Tersedia</option>
-                              <option value="tidak">Tidak tersedia</option>
-                          </select>
-                          @error('status')
-                          <div class="invalid-feedback">{{ $message }}</div>
-                          @enderror
-                      </div>
-                            <button type="submit" class="btn btn-success">Save</button>
-                        </form>
-                    </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Nomor</th>
+                        <th>Nama</th>
+                        <th>Tanggal Booking</th>
+                        <th>Kode Lapangan</th>
+                        <th>Jam</th>
+                        <th>Total Bayar</th>
+                        <th>Bukti Bayar</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Nomor</th>
+                        <th>Nama</th>
+                        <th>Tanggal Booking</th>
+                        <th>Kode Lapangan</th>
+                        <th>Jam</th>
+                        <th>Total Bayar</th>
+                        <th>Bukti Bayar</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr>
+                        <td>INV-000001</td>
+                        <td>Lustiyana Lusti</td>
+                        <td>27/06/2022</td>
+                        <td>A</td>
+                        <td>10.00 - 11.00</td>
+                        <td>Rp. 150.000</td>
+                        <td><a href="#">Download</a></td>
+                        <td>Lunas</td>
+                        <td>
+                          <button
+                            style="background-color: transparent; border: none"
+                          >
+                            <img src="../images/cross_disabled.svg" alt="" />
+                          </button>
+                          <button
+                            style="background-color: transparent; border: none"
+                          >
+                            <img src="../images/checklist_disabled.svg" alt="" />
+                          </button>
+                        </td>
+                      </tr>
+                      {{-- <tr>
+                        <td>INV-000002</td>
+                        <td>Bambang</td>
+                        <td>22/05/2022</td>
+                        <td>2</td>
+                        <td>08.00 - 10.00</td>
+                        <td>Rp. 300.000</td>
+                        <td><a href="#">Download</a></td>
+                        <td><div>Lunas</div></td>
+                        <td>
+                          <button
+                            style="background-color: transparent; border: none"
+                            disabled
+                          >
+                            <img src="../images/cross_disabled.svg" alt="" />
+                          </button>
+                          <button
+                            style="background-color: transparent; border: none"
+                            disabled
+                          >
+                            <img
+                              src="../images/checklist_disabled.svg"
+                              alt=""
+                            />
+                          </button>
+                        </td>
+                      </tr> --}}
+                    </tbody>
+                  </table>
                 </div>
- 
+              </div>
             </div>
-        </div>
+          </div>
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
@@ -304,9 +330,6 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
-    <script>
-      CKEDITOR.replace( 'content' );
-    </script>
+
   </body>
 </html>
->>>>>>> ea19381a9029da51a613c0f7728ace785ab32b0e
